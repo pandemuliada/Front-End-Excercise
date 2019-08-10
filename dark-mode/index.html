@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dark Mode Toggle</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <div class="card">
+    <input name="theme" type="checkbox" id="switch" />
+    <label for="switch">Toggle</label>
+    
+    <h1 id="mode">Light Mode</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo ipsum, itaque culpa rem alias ea, nemo eligendi delectus rerum a perspiciatis sapiente impedit doloribus error libero magni? Corporis, blanditiis quae!
+    </p>
+  </div>
+
+  <script>
+    const switchToggle = document.querySelector('#switch')
+    const mode = document.getElementById('mode')
+
+    switchToggle.addEventListener('change', function () {
+      if (this.checked) {
+        changeTheme('dark')
+      } else {
+        changeTheme('light')
+      }
+    })
+    
+    const changeTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme)
+      if (theme == 'dark') {
+        mode.innerText = 'Dark Mode'
+      } else {
+        mode.innerText = 'Light Mode'
+      }
+      document.documentElement.classList.add('transition')
+    }
+
+  </script>
+
+</body>
+</html>
