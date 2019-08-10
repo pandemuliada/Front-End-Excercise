@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Modal</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <button data-target="modal1" class="modal-button">Modal 1</button>
+  <div class="modal" id="modal1">
+    <div class="modal__content">
+      <h1>Modal Title 1</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur eum earum, reprehenderit ea labore assumenda non pariatur fugit, eligendi quibusdam dolor adipisci maiores rerum facere nisi repudiandae excepturi? Et, rerum.</p>
+      <span class="close-button">X</span>
+    </div>
+  </div>
+
+  <button data-target="modal2" class="modal-button">Modal 2</button>
+  <div class="modal" id="modal2">
+    <div class="modal__content">
+      <h1>Modal Title 2</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur eum earum, reprehenderit ea labore assumenda non pariatur fugit, eligendi quibusdam dolor adipisci maiores rerum facere nisi repudiandae excepturi? Et, rerum.</p>
+      <span class="close-button">X</span>
+    </div>
+  </div>
+
+  <script>
+
+    const modalButtons = document.querySelectorAll('.modal-button');
+    const closeButtons = document.querySelectorAll('.close-button');
+    let target, modal // Global Variable
+
+    closeButtons.forEach(closeButton => {
+      closeButton.addEventListener('click', () => {
+        closeModal()
+      })
+    });
+
+    // Using FOREACH LOOP
+    modalButtons.forEach(modalButton => {
+      // Open the modal when button clicked 
+      modalButton.onclick = () => {
+        target = modalButton.dataset.target // Get the data-target value
+        modal = document.getElementById(target) // Reference to modal that contain id = target
+        
+        openModal()
+      }
+      
+    })
+
+    // Using FOR LOOP
+
+    // for (let i = 0; i < modalButtons.length; i++) {
+    //   const button = modalButtons[i] 
+      
+    //   button.onclick = () => {
+    //     target = button.dataset.target // Get the data-target value
+    //     modal = document.getElementById(target) // Reference to modal that contain id = target
+        
+    //     openModal()
+    //   }
+
+    // }
+
+    // Close modal when clicked on dark area of modal
+    window.onclick = (e) => {
+      if (e.target == modal) {
+        closeModal()
+      }
+    }
+
+    const openModal = () => {
+      modal.style.display = 'block'
+    }
+
+    const closeModal = () => {
+      modal.style.display = 'none'
+    }
+
+
+  </script>
+</body>
+</html>

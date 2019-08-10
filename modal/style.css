@@ -1,0 +1,39 @@
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+#modal-button, .modal-button {
+  background: #02b3e4;
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.modal {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.2);
+  display: none;
+}
+.modal__content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  background: #FFF;
+  border-radius: 10px;
+  padding: 20px;
+  transform: translate(-50%,-50%);
+  animation: fadeIn .4s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
