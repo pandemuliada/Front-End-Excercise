@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Accordion</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  
+  <button class=accordion>Accordion 1</button>
+  <article class=accordion__panel>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas expedita animi optio, eveniet deserunt minus natus dolores accusantium. Explicabo minima eligendi alias repellendus et delectus nihil voluptatum, aut dicta itaque?
+  </article>
+
+  <button class=accordion>Accordion 2</button>
+  <article class=accordion__panel>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas expedita animi optio, eveniet deserunt minus natus dolores accusantium. Explicabo minima eligendi alias repellendus et delectus nihil voluptatum, aut dicta itaque?
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum a itaque odio soluta, qui placeat. Fugiat voluptatem temporibus nostrum fugit debitis optio nisi quia, repellendus reiciendis eveniet nam qui cupiditate?x
+  </article>
+
+  <button class=accordion>Accordion 3</button>
+  <article class=accordion__panel>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas expedita animi optio, eveniet deserunt minus natus dolores accusantium. Explicabo minima eligendi alias repellendus et delectus nihil voluptatum, aut dicta itaque?
+  </article>
+
+  <script>
+    const accordions = document.querySelectorAll('.accordion')
+
+    for (let i = 0; i < accordions.length; i++) {
+      
+      const accordion = accordions[i]
+      
+      accordion.addEventListener('click', function() {
+        
+        this.classList.toggle('active')
+        
+        const panel = this.nextElementSibling
+        // If show set maxHeight to null
+        // Else set the maxHeight to panel height needed for content
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + 'px'
+        }
+
+      })
+    }
+
+  </script>
+
+</body>
+</html>
