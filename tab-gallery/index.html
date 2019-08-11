@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tab Gallery</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  
+  <div class="image-container">
+    <div class="expand-wrapper">
+      <img src="images/img-1.jpg" id="expandImage">
+      <h1 id="expandImageText">Ice Cream 1</h1>
+    </div>
+  </div>
+
+  <div class="tab-wrapper">
+    <img class="image" src="images/img-1.jpg" alt="Ice Cream 1">
+    <img class="image" src="images/img-2.jpg" alt="Ice Cream 2">
+    <img class="image" src="images/img-3.jpg" alt="Ice Cream 3">
+    <img class="image" src="images/img-4.jpg" alt="Ice Cream 4">
+    <img class="image" src="images/img-5.jpg" alt="Ice Cream 5">
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.image')
+    const expandImage = document.querySelector('#expandImage')
+    const expandImageText = document.querySelector('#expandImageText')
+
+    images.forEach(image => {
+      image.addEventListener('click', () => {
+        expandImage.src = image.src
+        expandImage.alt = image.alt
+
+        expandImageText.textContent = image.alt
+      })
+    });
+  </script>
+
+</body>
+</html>
