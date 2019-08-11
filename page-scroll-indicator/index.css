@@ -1,0 +1,17 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.scroll-container {
+  position: fixed;
+  width: 100%;
+  height: 10px;
+  background: white;
+}
+
+#scrollIndicator {
+  width: 0%;
+  height: inherit;
+  background: green;
+}
