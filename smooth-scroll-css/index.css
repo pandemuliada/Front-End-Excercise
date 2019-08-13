@@ -1,0 +1,29 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  /* This is the magic */
+}
+
+nav {
+  position: fixed;
+  background: #fff;
+  width: 100%;
+  padding: 20px;
+}
+nav a {
+  display: inline-block;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+section {
+  height: 500px;
+  padding: 55px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,body {
+    scroll-behavior: auto;
+  }
+}
