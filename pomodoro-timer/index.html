@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+  <h1 class="app-title">Pomodoro Timer</h1>
+
+  <div class="wrapper">
+    <input type="number" id="minutesInput" placeholder="Enter minutes . . .">
+    <button id="startButton">Start</button>
+    <button id="stopButton">Stop</button>
+    <h2 id="timer"></h2>
+  </div>
+
+
+  <script>
+    const minutesInput = document.getElementById('minutesInput')
+    const startButton = document.getElementById('startButton')
+    const stopButton = document.getElementById('stopButton')
+    const timer = document.getElementById('timer')
+
+    let minutes, seconds = 0, interval
+
+    minutesInput.addEventListener('change', (e) => {
+      minutes = e.target.value
+    })
+
+    startButton.addEventListener('click', () => {
+      startTimer(minutes)
+    })    
+
+    stopButton.addEventListener('click', () => {
+      stopTimer();
+    })
+
+    // This function receive the minutes parameter
+    // Convert the minutes parameter to seconds
+    // SetInterval to 1 second
+    // Every 1 second the seconds variable is decrement by 1
+    // When the seconds variable reach zero (0) clear the interval
+    const startTimer = (minutes) => {
+      seconds = minutes * 60 || 0
+      interval = setInterval(() => {
+        seconds--
+        if (seconds < 0 || !seconds) {
+          stopTimer()  
+        }
+        
+        // Set the timer
+        timer.innerText = seconds + ' seconds'
+      }, 1000)
+    
+      timer.style.display = 'block'
+      
+      // Set the input to disable when the timer started
+      minutesInput.disabled = true
+    }  
+
+    const stopTimer = () => {
+      clearInterval(interval)
+      alert('Your sprint time is over, relax')
+      timer.innerText = ''
+      timer.style.display = 'none'
+      
+      // Set the input to not disable when the timer started
+      minutesInput.disabled = false
+    }
+
+  </script>
+
+</body>
+</html>
