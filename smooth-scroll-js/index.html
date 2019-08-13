@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Smooth Scroll</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+  <nav>
+    <a href="#home" data-scroll>Home</a>
+    <a href="#about" data-scroll>About</a>
+    <a href="#service" data-scroll>Service</a>
+    <a href="#contact" data-scroll>Contact</a>
+  </nav>
+  
+  <section id="home" style="background: royalblue;">
+    <h1>Home</h1>
+  </section>
+  <section id="about" style="background: green;">
+    <h1>About</h1>
+  </section>
+  <section id="service" style="background: orange;">
+    <h1>Service</h1>
+  </section>
+  <section id="contact" style="background: purple;">
+    <h1>Contact</h1>
+  </section>
+
+  <script>
+    const scrollLinks = document.querySelectorAll('a[data-scroll]')
+
+    scrollLinks.forEach(scrollLink => {
+      scrollLink.addEventListener('click', (e) => {
+        e.preventDefault()
+        
+        const scrollTarget = scrollLink.getAttribute('href').substr(1) // Remove the (#) character
+        const scrollElement = document.getElementById(scrollTarget)
+
+        // You can change the value
+        const scrollTopValue = scrollElement.offsetTop - 100 
+
+        window.scroll({ 
+          top: scrollTopValue, 
+          left: 0,
+          behavior: 'smooth' 
+        })
+      })
+    })
+    
+  </script>
+
+</body>
+</html>
