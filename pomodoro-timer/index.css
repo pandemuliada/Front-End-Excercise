@@ -1,0 +1,40 @@
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+.app-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
+
+.wrapper {
+  width: 367px;
+  margin: auto;
+}
+
+#minutesInput {
+  width: 200px;
+  padding: 10px 15px;
+  border: 1px solid #ddd
+}
+#startButton {
+  padding: 10px 16px;
+  border: 1px solid royalblue;
+  background: royalblue;
+  color: #fff;
+}
+#stopButton {
+  padding: 10px 16px;
+  border: 1px solid royalblue;
+  background: royalblue;
+  color: #fff;
+}
+#timer {
+  font-size: 2rem;
+  text-align: center;
+  background: blueviolet;
+  padding: 10px 0;
+  color: #fff;
+  display: none;
+}
