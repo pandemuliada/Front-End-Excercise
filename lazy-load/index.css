@@ -1,0 +1,16 @@
+html, body {
+  margin: 0;
+  padding: 0
+}
+
+.row {
+  height: 50vh;
+  display: flex;
+}
+.column {
+  flex-grow: 1;
+}
+
+img {
+  width: 100%;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lazy Load</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  
+  <div class="row">
+    <div class="column">
+      <img 
+        src="https://via.placeholder.com/150" 
+        data-src="./images/real.png" 
+        alt="" 
+        class="lazy">
+    </div>
+    <div class="column">
+      <img 
+        src="https://via.placeholder.com/150" 
+        data-src="./images/real.png" 
+        alt="" 
+        class="lazy">
+    </div>
+    <div class="column">
+      <img 
+        src="https://via.placeholder.com/150" 
+        data-src="./images/real.png" 
+        alt="" 
+        class="lazy">
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="column">
+      <img 
+        src="https://via.placeholder.com/150" 
+        data-src="./images/real.png" 
+        alt="" 
+        class="lazy">
+    </div>
+    <div class="column">
+      <img 
+        src="https://via.placeholder.com/150" 
+        data-src="./images/real.png" 
+        alt="" 
+        class="lazy">
+    </div>
+    <div class="column">
+      <img 
+        src="https://via.placeholder.com/150" 
+        data-src="./images/real.png" 
+        alt="" 
+        class="lazy">
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="column">
+      <img 
+        src="https://via.placeholder.com/150" 
+        data-src="./images/real.png" 
+        alt="" 
+        class="lazy">
+    </div>
+    <div class="column">
+      <img 
+        src="https://via.placeholder.com/150" 
+        data-src="./images/real.png" 
+        alt="" 
+        class="lazy">
+    </div>
+    <div class="column">
+      <img 
+        src="https://via.placeholder.com/150" 
+        data-src="./images/real.png" 
+        alt="" 
+        class="lazy">
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="column">
+      <img 
+        src="https://via.placeholder.com/150" 
+        data-src="./images/real.png" 
+        alt="" 
+        class="lazy">
+    </div>
+    <div class="column">
+      <img 
+        src="https://via.placeholder.com/150" 
+        data-src="./images/real.png" 
+        alt="" 
+        class="lazy">
+    </div>
+    <div class="column">
+      <img 
+        src="https://via.placeholder.com/150" 
+        data-src="./images/real.png" 
+        alt="" 
+        class="lazy">
+    </div>
+  </div>
+
+  <script>
+  
+    const images = document.querySelectorAll('img.lazy')
+
+    // The parameter takes array element within the viewport (images)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // Action when the entry is on the viewport 
+        if (entry.isIntersecting) {
+          const lazyImage = entry.target
+          
+          // Set the image src property
+          lazyImage.src = lazyImage.dataset.src
+          
+          // Unobserve the image
+          lazyImage.classList.remove('lazy')
+          observer.unobserve(lazyImage)
+        }
+      })
+    })
+
+    // Observe all images
+    images.forEach(image => observer.observe(image))
+  </script>
+
+</body>
+</html>
